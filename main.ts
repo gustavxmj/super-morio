@@ -1,6 +1,12 @@
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (mio.vy == 0) {
+        mio.vy = -150
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
     game.gameOver(false)
 })
+let mio: Sprite = null
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -124,7 +130,7 @@ scene.setBackgroundImage(img`
     dddddddddd444ddddd3ddddddddddddd4ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd44dddddddddddddddddddddddddddddddddd4ddddddddd
     `)
 tiles.setCurrentTilemap(tilemap`level2`)
-let mio = sprites.create(img`
+mio = sprites.create(img`
     .......ff...............
     ....ffff2ff.............
     ..ffeeeef2ff............
@@ -150,6 +156,6 @@ let mio = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
-controller.moveSprite(mio)
-mio.ay = 1000
+controller.moveSprite(mio, 100, 0)
+mio.ay = 300
 scene.cameraFollowSprite(mio)
