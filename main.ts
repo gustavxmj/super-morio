@@ -151,5 +151,5 @@ let mio = sprites.create(img`
     ........................
     `, SpriteKind.Player)
 controller.moveSprite(mio)
-mio.ay = 900
+mio.ay = 1000
 scene.cameraFollowSprite(mio)
