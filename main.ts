@@ -158,5 +158,6 @@ mio = sprites.create(img`
     `, SpriteKind.Player)
 tiles.placeOnRandomTile(mio, assets.tile`myTile3`)
 controller.moveSprite(mio, 100, 0)
+mio.setStayInScreen(true)
 mio.ay = 300
 scene.cameraFollowSprite(mio)
